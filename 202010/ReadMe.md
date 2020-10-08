@@ -48,3 +48,47 @@ depで管理されているプロジェクトについては「Gopkg.toml」フ�
 なのでgithubで見つけてきた古いサンプルでもdepを覚える必要はない。
 
 #### modules
+
+Go1.11以降、GOPATH配下へのプロジェクトの配置が不要になった。
+
+使用しているライブラリ等は$GOPATH/pkg/mod以下に配置される。バージョン管理も行われるのでプロジェクト毎に調整を行う必要がなくなった。
+
+#### go.modとgo.sum
+
+node.jsで言うところのpackage.jsonとpackage.json.lockにあたるもの？というイメージ。
+
+go.modは下記のコマンドで作成する
+
+```
+go mod init パッケージ名
+```
+
+#### 参考
+
+- [【Go言語】modulesについて理解するために過去から調べてみた](https://qiita.com/yoshinori_hisakawa/items/268ba201611401ca7935)
+
+- [他言語から来た人がGoを使い始めてすぐハマったこととその答え](https://qiita.com/mumoshu/items/0d2f2a13c6e9fc8da2a4)
+
+### その他
+
+#### goenv
+
+node.jsで言うところのnvmやnodistにあたるGo自体のバージョン管理を行う。
+
+ただ、大体ヒットするサイトはMacが多く、Windowsは皆無なので諦めるしかないかも。
+
+どうしてもバージョン管理を行いたいのであればWSL2+VSCode Remoteで環境を作成する方法も考えられる。
+
+#### GopherJS
+
+GoをJavaScriptに変換を行ってくれる。概ねの標準ライブラリがサポートされている。
+
+ただ、自分で書いたコード+ランタイムが含まれる為、一般的なWeb系で使うにはあまりにも大きすぎる(Hello Worldを返すHTTPサーバーで6MB)
+
+このソフトウェアはやりたい事の実現方法として考えられたが、NETパッケージ(ネットワーク関連)だけはほぼサポートされておらず残念ながら違うアプローチが必要になった。
+
+ちなみに2020/10/08時点では、Go1.12でないと動作しない。
+
+#### 参考
+
+- [Supported Packages](https://github.com/gopherjs/gopherjs/blob/master/doc/packages.md)
