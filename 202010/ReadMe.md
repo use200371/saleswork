@@ -39,6 +39,8 @@ id1["Vendor tree"] --> GOROOT --> GOPATH
 
 ```
 
+![](search_path.svg)
+
 依存管理ツールとしてglida,depといったものがあるが、現状ではmodulesを用いるのがベストである。
 
 depで管理されているプロジェクトについては「Gopkg.toml」ファイルがあればgo modにて簡単に移行できる(go run main.goのようにビルド&実行時に自動でmodules形式のファイルを作成してくれる)
