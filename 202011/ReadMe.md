@@ -65,3 +65,10 @@ Vue.jsと比較して手軽ではなく、学習コストは高めである
 
 [完全に独断と偏見だけどReact vs Vue してみた](https://qiita.com/102Design/items/ae018dc80a4d879d92a8)
 
+### next.js
+
+Vue.jsのSSRのnuxt.jsと名前が似ているがこちらはReactのSSR
+
+開発はvercel
+
+[NEXT.js](https://nextjs-docs-ja.netlify.app/docs)
