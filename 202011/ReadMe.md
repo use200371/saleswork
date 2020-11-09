@@ -72,3 +72,23 @@ Vue.jsのSSRのnuxt.jsと名前が似ているがこちらはReactのSSR
 開発はvercel
 
 [NEXT.js](https://nextjs-docs-ja.netlify.app/docs)
+
+### React　プロジェクト作成
+
+下記のコマンドによりプロジェクトが作成される。(3～4分ぐらい掛かる)
+
+公式のテンプレートであるが、実際には不要なものが含まれている可能性がある。
+
+```
+npx create-react-app [プロジェクト名]
+```
+
+素から入れる場合
+
+```
+npm i react react-dom webpack webpack-cli
+```
+
+```
+npm i -D typescript ts-loader webpack-dev-server @types/{react,react-dom}
+```
