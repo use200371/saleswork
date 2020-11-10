@@ -57,7 +57,25 @@ Webサービスにおいて自前で削除バッチを用意する必要がな�
 
 ### 概要
 
-Facebookによって開発されているSPAを実現するフロントエンド向けのJSフレームワーク
+Webアプリケーションにおいて基本的にUIはHTMLベースである(Flashのような例外は除く)
+
+例えば名前を登録するプログラムを考えた場合、次のようなフローとなる
+
+![](image01.png)
+
+JavaやPHPといった所謂サーバーサイドだけで完結させる事は可能である
+
+昨今のWebアプリケーション開発においてわざわざクライアントサイドとサーバーサイドに分離し、異なるアーキテクチャを使用して苦労してまで実装する必要があるのかという疑問が湧かないのだろうか？
+
+インタラクティブなインターフェースを提供する場合、どうしてもDOMを操作する必要がある
+
+ユーザー操作時にサーバーへ毎回リクエストし、必要なDOMを生成して差分描画を行う方法もあるが、応答性としてはクライアントサイドで処理を行った方が有利である
+
+フレームワークを使用しないでもvanila JS(同名のフレームワークがあるがここでは素のJavaScriptの意)でも同様の物のは作成できるが、とても生産性、品質という点でフレームワークを超える事は難しいだろう
+
+### Reactとは
+
+Facebookによって開発されているSPA用フロントエンド向けのJSフレームワーク
 
 Vue.jsと比較して手軽ではなく、学習コストは高めである
 
@@ -67,7 +85,7 @@ Vue.jsと比較して手軽ではなく、学習コストは高めである
 
 ### next.js
 
-Vue.jsのSSRのnuxt.jsと名前が似ているがこちらはReactのSSR
+Vue.jsのSSR(サーバーサイドレンダリング)のnuxt.jsと名前が似ているがこちらはReactのSSR
 
 開発はvercel
 
@@ -77,13 +95,13 @@ Vue.jsのSSRのnuxt.jsと名前が似ているがこちらはReactのSSR
 
 下記のコマンドによりプロジェクトが作成される。(3～4分ぐらい掛かる)
 
-公式のテンプレートであるが、実際には不要なものが含まれている可能性がある。
+公式のテンプレートであるが、実際には不要なものが含まれている可能性がある
 
 ```
 npx create-react-app [プロジェクト名]
 ```
 
-素から入れる場合
+create-react-appスクリプトに頼らない場合は下記のとおり。自前で色々と必要な設定やソースを用意する必要がある
 
 ```
 npm i react react-dom webpack webpack-cli
@@ -92,3 +110,31 @@ npm i react react-dom webpack webpack-cli
 ```
 npm i -D typescript ts-loader webpack-dev-server @types/{react,react-dom}
 ```
+
+### コンポーネント
+
+単純にUIの部品の事
+
+```
+const App = () => <div> hello word </div>
+```
+
+上記は「hello word」(hello worldではない)を出力するコンポーネントとなる
+
+この定義されたコンポーネントを組み合わせ画面を構成していく
+
+ちなみにこのコンポーネントは関数の為、「Function Component」と呼ばれ、現状一般的なコンポーネントの作成方法である
+
+他に「React.createClass」や「React.Component」等がある
+
+上記の宣言はJSX(JavaScript構文拡張)である為、Babel等でトランスパイルする必要がある
+
+### コンポーネントの表示
+
+HTML上の指定したDOMへコンポーネントを表示させるには「ReactDOM.render」を使用する
+
+```
+ReactDOM.render(<App />, document.getElementById("root"))
+```
+
+idが「root」のDOMへ「App」コンポーネントを表示させます。
