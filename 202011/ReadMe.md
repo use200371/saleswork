@@ -113,7 +113,7 @@ npm i -D typescript ts-loader webpack-dev-server @types/{react,react-dom}
 
 ### コンポーネント
 
-単純にUIの部品の事
+単純にUI部品の事
 
 ```
 const App = () => <div> hello word </div>
@@ -125,9 +125,19 @@ const App = () => <div> hello word </div>
 
 ちなみにこのコンポーネントは関数の為、「Function Component」と呼ばれ、現状一般的なコンポーネントの作成方法である
 
-他に「React.createClass」や「React.Component」等がある
-
 上記の宣言はJSX(JavaScript構文拡張)である為、Babel等でトランスパイルする必要がある
+
+### コンポーネントの種類
+
+上記で記載した「Function Component」以外にも下記のコンポーネントが存在する
+
+- React.createClass
+
+- React.Component
+
+違いはES6かvanila JSであるかの為、typescriptで記述する際必然的に「React.Component」を使用する事になる
+
+また、「React.Component」を使用するケースはstate(状態管理)とライフサイクルを実装する場合を使用し、それ以外は「Function Component」を使用する
 
 ### コンポーネントの表示
 
