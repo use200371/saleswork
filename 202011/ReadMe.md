@@ -148,3 +148,4 @@ ReactDOM.render(<App />, document.getElementById("root"))
 ```
 
 idが「root」のDOMへ「App」コンポーネントを表示させます。
+
