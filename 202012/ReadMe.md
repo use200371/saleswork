@@ -53,3 +53,17 @@ Host [サーバーのIPアドレス]
    ※必要ないかも
 
 6. VSCodeの設定にて「docker.host」に「ssh://[リモートのサーバーへのログインユーザー名]@[サーバーのIPアドレス]」を設定する
+
+### devcontainer.json
+
+DockerであればDockerfileにコンテナ構成を記述するようにRemote Containerではdevcontainer.jsonに記述します。
+
+詳細は[devcontainer.jsonリファレンス](https://code.visualstudio.com/docs/remote/devcontainerjson-reference)を参照
+
+```
+{
+  "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:0-12",
+  "forwardPorts": [3000],
+  "extensions": ["dbaeumer.vscode-eslint"]
+}
+```
